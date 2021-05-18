@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://LineChart.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.491525 ), 0.0, 0.0, 0, 0, Vector2( 0.495, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.985, 0.305085 ), 0.0, 0.0, 0, 0 ]
+
+[node name="LineChart" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="X_Axis" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 550, 1024, 550 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Y_Axis" type="Line2D" parent="."]
+points = PoolVector2Array( 50, 0, 50, 600 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 3.0
+width_curve = SubResource( 1 )
+
+[node name="X_Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -45.2347
+margin_top = -27.4695
+margin_right = 31.7653
+margin_bottom = -13.4695
+text = "X Axis Label"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Y_Label" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 10.1022
+margin_top = -7.0
+margin_right = 86.1022
+margin_bottom = 7.0
+rect_rotation = -90.0
+text = "Y Axis Label"
+
+[node name="Highlight" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighlightShape" type="Polygon2D" parent="Highlight"]
+position = Vector2( -28.3748, -5.95275 )
+polygon = PoolVector2Array( -10.8933, 4.07952, -6.13111, 19.1598, 26.609, 14.5961, 54.587, 19.3583, 70.6594, 9.63542, 62.524, -9.21497, -4.94056, -6.83387 )
+
+[node name="Label" type="Label" parent="Highlight"]
+margin_left = -36.7087
+margin_top = -6.74646
+margin_right = 38.2913
+margin_bottom = 7.25354
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Information"
+__meta__ = {
+"_edit_use_anchors_": false
+}
